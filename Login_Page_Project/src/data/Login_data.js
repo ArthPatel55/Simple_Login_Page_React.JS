@@ -1,6 +1,6 @@
 const users = [
-    { useremail: 'arth.patel@bypeopletechnologies.com', password: '1234' },
-    { usereamil: 'arth12@gmail.com', password: '1234' },
+    { username:'Arth Patel', useremail: 'arth.patel@bypeopletechnologies.com', password: '1234' },
+    { username:'Manan patel',usereamil: 'manan.patel@bypeopletechnologies.com', password: '1234' },
   ];
   
   export default users;

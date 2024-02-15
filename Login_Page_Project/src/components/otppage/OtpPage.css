@@ -1,0 +1,32 @@
+
+
+.otp_container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 25rem;
+    height: 100vh;
+    box-shadow: 1px 1px 5px 3px rgba(0, 0, 0, 0.482);
+    padding: 20px;
+    flex-direction: column;
+}
+.form_body{
+    background:#fff;
+    height: max-content;
+    width: max-content;
+    /* font-family: Arial, sans-serif; */
+}
+  .otp-input{
+    /* display: flex; */
+    justify-content: center;
+    width: 30px;
+    height: 40px;
+    margin: 0 5px;
+    font-size: 18px;
+    /* text-align: center; */
+  }
+@media (max-width: 400px) {
+    .otp-container {
+        width: 80%;
+    }
+}
