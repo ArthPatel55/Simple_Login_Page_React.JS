@@ -1,0 +1,27 @@
+.login_container{
+    /* background: #555fd2;
+    width: 20rem;
+    margin: unset;
+    max-width: 500px;
+    margin: auto;
+    background: white;
+    padding: 10px; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+
+}
+.form_body{
+    background:rgb(211, 211, 211);
+    height: max-content;
+    width: max-content;
+}
+.dark_form {
+    width:100% ;
+    background: #000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 16px;
+}
