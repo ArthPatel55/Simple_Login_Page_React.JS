@@ -1,27 +1,53 @@
 .login_container{
-    /* background: #555fd2;
-    width: 20rem;
-    margin: unset;
-    max-width: 500px;
-    margin: auto;
-    background: white;
-    padding: 10px; */
     display: flex;
     justify-content: center;
     align-items: center;
+    width: 25rem;
     height: 100vh;
-
+    box-shadow: 1px 1px 5px 3px rgba(0, 0, 0, 0.482);
+    
+    padding: 20px;
+    /* width: 300px; */
+    /* display: flex; */
+    flex-direction: column;
+    /* align-items: center; */
 }
 .form_body{
-    background:rgb(211, 211, 211);
+    background:#fff;
     height: max-content;
     width: max-content;
+    /* font-family: Arial, sans-serif; */
 }
 .dark_form {
-    width:100% ;
-    background: #000;
-    display: flex;
-    justify-content: center;
+    width:25rem ;
+    display:flex;
+    flex-direction: column;
     align-items: center;
-    border-radius: 16px;
+}
+label{
+    display: flex;
+    width: 15rem;
+    font: 20px bold;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    color: #000;
+}
+input{ 
+    border-style: solid;
+    border-color: rgb(135, 135, 135);
+    border-radius: 3px;
+    height: 1.8rem;
+    width:15rem;
+}
+button{
+    background: #8727F4;
+    border: unset;
+    box-shadow: 1px 1px 3px 1px #7700ff;
+    border-radius: 3px;
+    height: 1.8rem;
+    width:15rem;
+}
+@media (max-width: 400px) {
+    .login-container {
+        width: 80%;
+    }
 }
