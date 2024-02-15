@@ -1,9 +1,12 @@
 import React, { useState } from 'react';
+import { useNavigate } from "react-router-dom";
+import otpData from "../../data/Login_data.js";
 import './OtpPage.css'
 
 const OtpPage = () => {
     const [otp, setOtp] = useState(['', '', '', '']); // Initialize with empty values
-
+    const navigate = useNavigate();
+    
     const handleChange = (e, index) => {
       const value = e.target.value;
       if (isNaN(value) || value.length > 1) {
@@ -27,12 +30,32 @@ const OtpPage = () => {
           document.getElementById(`otp-input-${index - 1}`).focus();
         }
       };
+      const handleChackOtp=()=>{
+        try {
+          
+          const eneterOTP=otp.join('');
+          console.log(eneterOTP)
+          const otpDetails = otpData.find(
+            (otp) => otp.otp === eneterOTP);
+            console.log(otpDetails);
+            if(otpDetails){
+              navigate("/welcome");
+            } else {
+              alert("Invalid. Please try again.");
+            }
+        } catch (error) {
+          console.log(error)
+        }
+      }
     return (
-      <div className="form_body">
+      <div className="otp_body">
         <div className="otp_container">
         <h1>OTP Input Box</h1>
-        <form >
-          <div>
+        <form className="form_body" onSubmit={(event) => {
+            event.preventDefault();
+            handleChackOtp();
+          }}>
+          <div id="otp_text_box">
            {otp.map((digit, index) => (
             <input  className="otp-input"
               type="text"
@@ -46,7 +69,7 @@ const OtpPage = () => {
           ))}
           </div>
           <br/><br/>
-          <button></button>
+          <button className="submit_btn">Check OTP</button>
           </form>
         </div>
       </div>

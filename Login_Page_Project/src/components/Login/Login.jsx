@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import usersData from "../../data/Login_data.js";
 import "./Login.css";
 
@@ -9,11 +9,9 @@ const Login = () => {
   const navigate = useNavigate();
   const handleSetEmail = (event) => {
     setUserEmail(event.target.value);
-    
   };
   const handleSetPassword = (event) => {
     setUserPassword(event.target.value);
-   
   };
   const handleUserLogin = () => {
     try {
@@ -21,7 +19,7 @@ const Login = () => {
       console.log(userPassword);
       const userDetails = usersData.find(
         (user) => user.useremail === userEamil && user.password === userPassword
-        );
+      );
 
       if (userDetails) {
         navigate("/otppage");
@@ -29,7 +27,7 @@ const Login = () => {
         alert("Invalid. Please try again.");
       }
     } catch (error) {
-      console.log(error.message); 
+      console.log(error.message);
     }
   };
   return (
@@ -62,8 +60,9 @@ const Login = () => {
           <br />
           <button type="submit">Log In</button>
           <br />
-          <label>Don't have an Account?</label>
-          <a>Singnup Now</a>
+          <div className="last_label">
+            Don't have an Account? Go to <Link to="/singup">Sing UP</Link>
+          </div>
         </form>
       </div>
     </div>

@@ -46,6 +46,12 @@ button{
     height: 1.8rem;
     width:15rem;
 }
+.last_label{
+    width: 20rem;
+    font: 18px bold;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    color: #000;
+}
 @media (max-width: 400px) {
     .login-container {
         width: 80%;

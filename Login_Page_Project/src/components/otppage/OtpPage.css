@@ -10,20 +10,40 @@
     padding: 20px;
     flex-direction: column;
 }
-.form_body{
+.otp_body{
     background:#fff;
     height: max-content;
     width: max-content;
     /* font-family: Arial, sans-serif; */
+}
+#otp_text_box{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.form_body{
+  /* display: flex; */
+  justify-content: center;
+  align-items: center;
 }
   .otp-input{
     /* display: flex; */
     justify-content: center;
     width: 30px;
     height: 40px;
+    text-align: center;
     margin: 0 5px;
     font-size: 18px;
     /* text-align: center; */
+  }
+  .submit_btn{
+    background: #8727F4;
+    border: unset;
+    box-shadow: 1px 1px 3px 1px #7700ff;
+    border-radius: 3px;
+    height: 1.8rem;
+    width:10rem;
+    
   }
 @media (max-width: 400px) {
     .otp-container {
