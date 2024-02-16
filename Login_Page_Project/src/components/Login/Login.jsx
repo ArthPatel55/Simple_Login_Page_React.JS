@@ -3,10 +3,15 @@ import { Link, useNavigate } from "react-router-dom";
 import usersData from "../../data/Login_data.js";
 import "./Login.css";
 
+// temp data show
+console.log(usersData)
+
 const Login = () => {
   const [userEamil, setUserEmail] = useState("");
   const [userPassword, setUserPassword] = useState("");
   const navigate = useNavigate();
+
+
   const handleSetEmail = (event) => {
     setUserEmail(event.target.value);
   };
@@ -33,6 +38,10 @@ const Login = () => {
   return (
     <div className="form_body">
       <div className="login_container">
+      <h1 className="login_wlc_title" >
+            Welcome Back!
+        </h1>
+        <h3 className="login_wlc_title_2">Sign in to continue to Application</h3>
         <form
           className="dark_form"
           onSubmit={(event) => {
@@ -41,7 +50,6 @@ const Login = () => {
           }}
         >
           <label htmlFor="email">User Email</label>
-          <br />
           <input
             type="email"
             id="email"
@@ -50,7 +58,6 @@ const Login = () => {
           />
           <br />
           <label htmlFor="password">Password</label>
-          <br />
           <input
             type="password"
             id="password"
@@ -61,7 +68,7 @@ const Login = () => {
           <button type="submit">Log In</button>
           <br />
           <div className="last_label">
-            Don't have an Account? Go to <Link to="/singup">Sing UP</Link>
+            Don't have an Account? Go to <Link to="/signup">Sing UP</Link>
           </div>
         </form>
       </div>

@@ -3,10 +3,12 @@ import { useNavigate } from "react-router-dom";
 import otpData from "../../data/Login_data.js";
 import './OtpPage.css'
 
+// temp data show
+console.log(otpData)
+
 const OtpPage = () => {
     const [otp, setOtp] = useState(['', '', '', '']); // Initialize with empty values
     const navigate = useNavigate();
-    
     const handleChange = (e, index) => {
       const value = e.target.value;
       if (isNaN(value) || value.length > 1) {
@@ -34,9 +36,9 @@ const OtpPage = () => {
         try {
           
           const eneterOTP=otp.join('');
-          console.log(eneterOTP)
           const otpDetails = otpData.find(
             (otp) => otp.otp === eneterOTP);
+            
             console.log(otpDetails);
             if(otpDetails){
               navigate("/welcome");
