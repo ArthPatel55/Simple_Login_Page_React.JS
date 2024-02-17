@@ -4,7 +4,7 @@ import otpData from "../../data/Login_data.js";
 import './OtpPage.css'
 
 // temp data show
-console.log(otpData)
+// console.log(otpData)
 
 const OtpPage = () => {
     const [otp, setOtp] = useState(['', '', '', '']); // Initialize with empty values
@@ -41,7 +41,7 @@ const OtpPage = () => {
             
             console.log(otpDetails);
             if(otpDetails){
-              navigate("/welcome");
+              navigate("/dashboard");
             } else {
               alert("Invalid. Please try again.");
             }

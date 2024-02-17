@@ -4,7 +4,7 @@ import usersData from "../../data/Login_data.js";
 import "./Login.css";
 
 // temp data show
-console.log(usersData)
+// console.log(usersData)
 
 const Login = () => {
   const [userEamil, setUserEmail] = useState("");

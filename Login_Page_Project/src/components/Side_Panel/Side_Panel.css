@@ -1,0 +1,9 @@
+.side_panel {
+    background-color: #2ecc71;
+    /* color: #fff; */
+    justify-self: left;
+    height: 84.2vh;
+    width: 200px;
+    padding: 10px;
+  }
+  
