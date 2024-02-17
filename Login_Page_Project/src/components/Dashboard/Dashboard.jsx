@@ -37,9 +37,9 @@ const Dashboard = () => {
   let a = 1;
   return (
     <div className="dashboard">
-      <Header/>
+      <Header />
       <div className="content-container">
-        <Side_Panel/>
+        <Side_Panel />
         <main className="main-content">
           <div className="search_container">
             <button className="btn_add">➕Add</button>
@@ -74,7 +74,7 @@ const Dashboard = () => {
                         <th scope="row">{a++}</th>
                         <td>{userData.name}</td>
                         <td>{userData.phone}</td>
-                        <td>{userData.isGold ? "Valid" : "IN-Valid"}</td>
+                        <td>{userData.isValid ? "Valid" : "IN-Valid"}</td>
                         <td>{userData.email}</td>
                         <td>
                           <button className="btn_delete">Delete</button>
@@ -87,7 +87,7 @@ const Dashboard = () => {
                         <th scope="row">{a++}</th>
                         <td>{userData.name}</td>
                         <td>{userData.phone}</td>
-                        <td>{userData.isGold ? "Valid" : "IN-Valid"}</td>
+                        <td>{userData.isValid ? "Valid" : "IN-Valid"}</td>
                         <td>{userData.email}</td>
                         <td>
                           <button className="btn_delete">Delete</button>
