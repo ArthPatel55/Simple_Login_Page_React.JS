@@ -6,7 +6,7 @@ import "./Login.css";
 // temp data show
 // console.log(usersData)
 
-const Login = () => {
+const Login =  () => {
   const [userEamil, setUserEmail] = useState("");
   const [userPassword, setUserPassword] = useState("");
   const navigate = useNavigate();
@@ -18,10 +18,11 @@ const Login = () => {
   const handleSetPassword = (event) => {
     setUserPassword(event.target.value);
   };
-  const handleUserLogin = () => {
+  const handleUserLogin = async () => {
     try {
       console.log(userEamil);
       console.log(userPassword);
+
       const userDetails = usersData.find(
         (user) => user.useremail === userEamil && user.password === userPassword
       );

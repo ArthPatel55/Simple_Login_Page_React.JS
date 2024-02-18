@@ -37,9 +37,9 @@ const Dashboard = () => {
   let a = 1;
   return (
     <div className="dashboard">
-      <Header/>
+      <Header />
       <div className="content-container">
-        <Side_Panel/>
+        <Side_Panel />
         <main className="main-content">
           <div className="search_container">
             <button className="btn_add">➕Add</button>
