@@ -6,7 +6,7 @@ const Header = () => {
   const navigate = useNavigate();
   const handlelogout = async () => {
     const accessToken = localStorage.getItem("accessToken");
-    console.log(accessToken)
+    // console.log(accessToken)
     const response = await fetch(
       "http://192.168.1.28:4000/api/v1/user/logout",
       {
@@ -17,7 +17,7 @@ const Header = () => {
         },
       }
     );
-    console.log("Res-> ", response);
+    // console.log("Res-> ", response);
     if (response.ok) {
       localStorage.removeItem("accessToken");
       navigate("/");

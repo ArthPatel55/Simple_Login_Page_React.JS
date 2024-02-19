@@ -21,6 +21,14 @@
 .login_wlc_title{
     margin: 0;
 }
+.incorrect{
+    background: #FFEBEB;
+    border-color: #FF4A4A;
+}
+.error_lable{
+    font-size:13px;
+    color: #FF4A4A;
+}
 .login_wlc_title_2{
     margin: 12px 0;
     color: rgb(103, 103, 103);
