@@ -14,23 +14,6 @@ const AddUser = () => {
   const [email, setEmail] = useState('');
   const [isValid, setIsvalid] = useState(false);
   const [phone, setPhone] = useState('');
-  //   const handleInputChange = (fieldName, value) => {
-  //     setNumberObject((prevData) => ({
-  //         ...prevData,
-  //         [fieldName]: value,
-  //     }));
-  // };
-
-//   const handleChange = (fieldName, value) => {
-//     // console.log(e, ' :  this is e')
-//     console.log("fieldName-> ", fieldName);
-    
-//     // const inputValue = type === "checkbox" ? checked : value;
-//     // console.log("input-> ", inputValue);
-   
-   
-// };
-
 const handleSubmit = async (e) => {
     e.preventDefault();
     const data = {

@@ -1,10 +1,20 @@
 import React, { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import "./Dashboard.css";
 import Error from "../Error/Error.jsx";
 import Header from "../Header/Header.jsx";
 import Side_Panel from "../Side_Panel/Side_Panel.jsx";
 
 const Dashboard = () => {
+  const navigate = useNavigate();
+  useEffect(() => {
+    const accessToken = localStorage.getItem('accessToken');
+
+    if (!accessToken) {
+      navigate('/');
+    }
+  }, [history]);
+
   const [userDatas, setUserDatas] = useState([]);
   const [searchItem, setSearchItem] = useState("");
   const [searchResult, setSearchResult] = useState(null);

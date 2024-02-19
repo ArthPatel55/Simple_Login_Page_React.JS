@@ -1,14 +1,21 @@
-import React, { useState } from 'react';
+import {useState,useEffect } from 'react';
 import { useNavigate } from "react-router-dom";
 import otpData from "../../data/Login_data.js";
+// import AuthentUser from '../AuthentUser/AuthentUser.jsx';
 import './OtpPage.css'
 
-// temp data show
-// console.log(otpData)
 
 const OtpPage = () => {
+  const navigate = useNavigate();
+  useEffect(() => {
+    const accessToken = localStorage.getItem('accessToken');
+
+    if (!accessToken) {
+      navigate('/');
+    }
+  }, [history]);
+
     const [otp, setOtp] = useState(['', '', '', '']); // Initialize with empty values
-    const navigate = useNavigate();
     const handleChange = (e, index) => {
       const value = e.target.value;
       if (isNaN(value) || value.length > 1) {
@@ -38,8 +45,6 @@ const OtpPage = () => {
           const eneterOTP=otp.join('');
           const otpDetails = otpData.find(
             (otp) => otp.otp === eneterOTP);
-            
-            console.log(otpDetails);
             if(otpDetails){
               navigate("/dashboard");
             } else {
@@ -74,6 +79,7 @@ const OtpPage = () => {
           <button className="submit_btn">Check OTP</button>
           </form>
         </div>
+        {/* <AuthentUser/> */}
       </div>
     );
 }

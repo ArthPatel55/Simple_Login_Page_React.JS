@@ -7,6 +7,7 @@ const Error = ({title,message}) => {
       <div className="contener">
       <h2>{title}</h2>
        <p>{message}</p>
+       {/* {console.log("Error message",message)} */}
        <p>Enter the Valid Data</p>
         <button>Okay</button>
       </div>

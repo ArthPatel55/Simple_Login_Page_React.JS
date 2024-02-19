@@ -1,17 +1,14 @@
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import usersData from "../../data/Login_data.js";
 import "./Login.css";
 
-// temp data show
-// console.log(usersData)
 
-const Login =  () => {
-  const [userEamil, setUserEmail] = useState("");
+const Login = () => {
+  const [userEmail, setUserEmail] = useState("");
   const [userPassword, setUserPassword] = useState("");
+  const [foundError, setError] = useState("");
   const navigate = useNavigate();
-
-
+  // console.log(foundError);
   const handleSetEmail = (event) => {
     setUserEmail(event.target.value);
   };
@@ -20,41 +17,43 @@ const Login =  () => {
   };
   const handleUserLogin = async () => {
     try {
-      console.log(userEamil);
-      console.log(userPassword);
-
-      const userDetails = usersData.find(
-        (user) => user.useremail === userEamil && user.password === userPassword
-      );
-
-      if (userDetails) {
+        const response = await fetch("http://192.168.1.28:4000/api/v1/user/login", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          email: userEmail,
+          password: userPassword,
+        }),
+      });
+      if(response.ok){
+        const { accessToken } = await response.json();
+        localStorage.setItem('accessToken', accessToken);
+        console.log("token-> ", accessToken)
         navigate("/otppage");
-      } else {
-        alert("Invalid. Please try again.");
       }
     } catch (error) {
-      console.log(error.message);
+      console.log("Error sending data to API:",error.message);
+      setError(error.message);
     }
   };
   return (
     <div className="form_body">
       <div className="login_container">
-      <h1 className="login_wlc_title" >
-            Welcome Back!
-        </h1>
-        <h3 className="login_wlc_title_2">Sign in to continue to Application</h3>
-        <form
-          className="dark_form"
-          onSubmit={(event) => {
+        <h1 className="login_wlc_title">Welcome Back!</h1>
+        <h3 className="login_wlc_title_2">
+          Sign in to continue to Application
+        </h3>
+       <form className="dark_form" onSubmit={(event) => {
             event.preventDefault();
             handleUserLogin();
-          }}
-        >
+          }}>
           <label htmlFor="email">User Email</label>
           <input
             type="email"
-            id="email"
-            value={userEamil}
+            id="email1"
+            value={userEmail}
             onChange={handleSetEmail}
           />
           <br />
@@ -72,7 +71,15 @@ const Login =  () => {
             Don't have an Account? Go to <Link to="/signup">Sing UP</Link>
           </div>
         </form>
+        {!foundError ?(<></>):(
+            // <Error
+            //   title="Failed to fetch data"
+            //   message="In-Valid User is Found."
+            // />
+            console.log(foundError)
+          )}
       </div>
+      
     </div>
   );
 };
