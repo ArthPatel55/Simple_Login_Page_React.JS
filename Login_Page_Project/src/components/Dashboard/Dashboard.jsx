@@ -24,26 +24,57 @@ const Dashboard = () => {
   };
   const handleSearch = async () => {
     try {
-      const apiUrl = `http://192.168.1.67:3000/api/customers/${searchItem}`;
+      const apiUrl = `http://192.168.1.28:3000/api/customers/${searchItem}`;
       const response = await fetch(apiUrl);
       const data = await response.json();
       setSearchResult(data);
+      
     } catch (error) {
       setError(error.message);
     }
   };
-  useEffect(() => {
+
+  const handleAddUser=()=>{
+    navigate('/adduser')
+  }  
+
+  const handleEdit=(data)=>{
+    // console.log(data);
+    navigate(`/edit/${data}`)
+  }
+ 
     const fatchData = async () => {
       try {
-        const response = await fetch("http://192.168.1.67:3000/api/customers/");
+        const response = await fetch("http://192.168.1.28:3000/api/customers/");
         const result = await response.json();
         setUserDatas(result);
       } catch (error) {
         setError(error.message);
       }
     };
-    fatchData();
-  }, []);
+    useEffect(() => {
+      fatchData();
+    }, []);
+  const handleDelete=async(id)=>{
+    try {
+      const response = await fetch(`http://192.168.1.28:3000/api/customers/${id}`, {
+        method: 'DELETE',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+      });
+
+      if (response.ok) {
+        console.log('Customer deleted successfully.');
+        fatchData();
+      } else {
+        const errorData = await response.json();
+        console.log(`Error: ${errorData.message}`);
+      }
+    } catch (error) {
+      console.error('Error during delete operation:', error);
+    }
+  }
   let a = 1;
   return (
     <div className="dashboard">
@@ -52,7 +83,7 @@ const Dashboard = () => {
         <Side_Panel />
         <main className="main-content">
           <div className="search_container">
-            <button className="btn_add">➕Add</button>
+            <button className="btn_add" onClick={handleAddUser} >➕Add</button>
             <div className="search_box">
               <input
                 className="search_input"
@@ -78,13 +109,14 @@ const Dashboard = () => {
                 </tr>
               </thead>
               <tbody>
+                {/* {console.log(searchResult)} */}
                 {searchResult
                   ? searchResult.map((userData) => (
                       <tr className="alert" role="alert" key={userData._id}>
                         <th scope="row">{a++}</th>
                         <td>{userData.name}</td>
                         <td>{userData.phone}</td>
-                        <td>{userData.isGold ? "Valid" : "IN-Valid"}</td>
+                        <td>{userData.isValid ? "Valid" : "IN-Valid"}</td>
                         <td>{userData.email}</td>
                         <td>
                           <button className="btn_delete">Delete</button>
@@ -97,11 +129,11 @@ const Dashboard = () => {
                         <th scope="row">{a++}</th>
                         <td>{userData.name}</td>
                         <td>{userData.phone}</td>
-                        <td>{userData.isGold ? "Valid" : "IN-Valid"}</td>
+                        <td>{userData.isValid ? "Valid" : "IN-Valid"}</td>
                         <td>{userData.email}</td>
                         <td>
-                          <button className="btn_delete">Delete</button>
-                          <button className="btn_edit">Edit</button>
+                          <button className="btn_delete"  onClick={()=>handleDelete(userData._id)}>Delete</button>
+                          <button className="btn_edit" onClick={()=>handleEdit(userData._id)} >Edit</button>
                         </td>
                       </tr>
                     ))}

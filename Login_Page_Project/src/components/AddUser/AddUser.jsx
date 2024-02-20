@@ -1,9 +1,11 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import "./AddUser.css";
 import Header from "../Header/Header";
 import Side_Panel from "../Side_Panel/Side_Panel";
 
 const AddUser = () => {
+  const navigate = useNavigate();
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -26,7 +28,7 @@ const handleSubmit = async (e) => {
     console.log("Request Data:", data);
   
     try {
-      const response = await fetch("http://192.168.1.67:3000/api/customers/", {
+      const response = await fetch("http://192.168.1.28:3000/api/customers/", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -34,11 +36,12 @@ const handleSubmit = async (e) => {
         body: JSON.stringify(data),
       });
   
-      console.log("Response:", response.status, response.statusText);
+      // console.log("Response:", response.status, response.statusText);
   
       if (response.ok) {
         const responseData = await response.json();
-        console.log("API Response:", responseData);
+        // console.log("API Response:", responseData);
+        navigate('/dashboard')
       } else {
         const errorData = await response.json();
         console.error("Error sending data to API:", errorData);

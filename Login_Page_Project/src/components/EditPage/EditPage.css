@@ -1,0 +1,43 @@
+.username,.email,.phone{
+    padding: 0;
+    margin: 0;
+    width: 20rem;
+    height: 2rem;
+    border: 2px solid rgb(99, 99, 99);
+    /* border-color: gray; */
+}
+label{
+    margin: 8px 0;
+}
+.valid_customer{
+width: 9rem;
+margin-top: 5px;
+margin-bottom:10px ;
+}
+.main_content {
+    flex: 1;
+    padding: 10px;
+  }
+.radio_btn{
+    display: flex;
+    margin: 5px 0;
+}
+.valid,.in_valid{
+    width: 2vh;
+}
+.radio_label{
+    margin: 0;
+    width: 10vh;
+    
+    /* text-align: center; */
+    padding: 5px 2px;
+    justify-content: center;
+}
+.edit_btn{
+    /* float: right; */
+    background: rgba(63, 234, 75, 0.827);
+    width: 10vh;
+    text-align: center;
+    box-shadow: 1px 1px 3px 1px rgba(63, 234, 74, 0.73);
+    /* margin:  6px 10px; */
+}
