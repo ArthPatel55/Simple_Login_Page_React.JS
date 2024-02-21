@@ -18,12 +18,16 @@ const Dashboard = () => {
   const [userDatas, setUserDatas] = useState([]);
   const [searchItem, setSearchItem] = useState("");
   const [searchResult, setSearchResult] = useState(null);
-  const [foundError, setError] = useState();
+  const [foundError, setError] = useState(null);
   const searchInput = (e) => {
     setSearchItem(e.target.value);
   };
   const handleSearch = async () => {
     try {
+      if(searchItem===''){
+        setError(null)
+        fatchData();
+      }
       const apiUrl = `http://192.168.1.28:3000/api/customers/${searchItem}`;
       const response = await fetch(apiUrl);
       const data = await response.json();
